@@ -4,9 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextNodeHandler : MonoBehaviour
+public class CommentNodeHandler : MonoBehaviour
 {
     public float localPositionY;
+    public bool isActive = false;
 
     private RectTransform textFieldRectTransform,
         titleRectTransform,
@@ -67,5 +68,26 @@ public class TextNodeHandler : MonoBehaviour
         
         commentNodeRectTransform.sizeDelta = new Vector2(commentNodeRectTransform.sizeDelta.x, titleText.preferredHeight + text.preferredHeight + SBNText.preferredHeight + SAAText.preferredHeight);
         transform.localPosition = new Vector3(0, -localPositionY, 0);
+    }
+
+    public void SetActive()
+    {
+        isActive = true;
+        ChangeColor();
+        transform.parent.GetComponent<CommentsPanel>().SetActiveNode(gameObject);
+    }
+
+    public void SetInactive()
+    {
+        isActive = false;
+        ChangeColor();
+    }
+
+    private void ChangeColor()
+    {
+        if (isActive)
+            transform.GetComponent<Image>().color = new Color(0.1882353f, 0.1882353f, 0.1882353f, 1f);
+        else
+            transform.GetComponent<Image>().color = new Color(0.2196079f, 0.2196079f, 0.2196079f, 1f);
     }
 }

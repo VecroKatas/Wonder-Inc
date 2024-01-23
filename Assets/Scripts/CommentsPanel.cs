@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class CommentsPanel : MonoBehaviour
 {
-    [SerializeField] public GameObject CommentNodePrefab;
-    
+    public GameObject activeCommentNode;
+    public GameObject CommentNodePrefab;
+
     private RectTransform rectTransform;
     private Transform _transform;
     private List<GameObject> commentNodes = new List<GameObject>();
@@ -34,13 +35,11 @@ public class CommentsPanel : MonoBehaviour
     {
         string title = "Title", text = lorem;
         CreateCommentNode(title, text);
-        ChangePositionViaScroll();
     }
 
     public void NewNode(string title, string text)
     {
         CreateCommentNode(title, text);
-        ChangePositionViaScroll();
     }
     
     public void CreateCommentNode(string title, string text)
@@ -57,9 +56,9 @@ public class CommentsPanel : MonoBehaviour
         if (_firstCommentNode == 0) _firstCommentNode = commentNode.GetComponent<RectTransform>().sizeDelta.y;
         
         if (_firstCommentNode == 0)
-            commentNode.GetComponent<TextNodeHandler>().localPositionY = 0;
+            commentNode.GetComponent<CommentNodeHandler>().localPositionY = 0;
         else
-            commentNode.GetComponent<TextNodeHandler>().localPositionY = -CalculateHeight() + _firstCommentNode;
+            commentNode.GetComponent<CommentNodeHandler>().localPositionY = -CalculateHeight() + _firstCommentNode;
         
         rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, CalculateHeight());
         transform.localPosition = new Vector3(0, - 10 - CalculateHeight() + _firstCommentNode, 0);
@@ -84,5 +83,13 @@ public class CommentsPanel : MonoBehaviour
     {
         _scrollValue = transform.parent.Find("Scrollbar").GetComponent<Scrollbar>().value;
         ChangePositionViaScroll();
+    }
+
+    public void SetActiveNode(GameObject node)
+    {
+        if (activeCommentNode != null)
+            activeCommentNode.GetComponent<CommentNodeHandler>().SetInactive();
+
+        activeCommentNode = node;
     }
 }

@@ -20,6 +20,16 @@ public class ScrollHandle : MonoBehaviour
     private void Update()
     {
         ChangeSize();
+        
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f )
+        {
+            if (scrollbar.value + Input.GetAxis("Mouse ScrollWheel") > 1f)
+                scrollbar.value = 1f;
+            else if (scrollbar.value + Input.GetAxis("Mouse ScrollWheel") < 0f)
+                scrollbar.value = 0f;
+            else
+                scrollbar.value += Input.GetAxis("Mouse ScrollWheel");
+        }
     }
 
     private void ChangeSize()
