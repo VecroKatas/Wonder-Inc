@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Classes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,21 +29,15 @@ public class CommentsPanel : MonoBehaviour
     private void Start()
     {
         ChangePositionViaScroll();
-        NewNode();
-    }
-    
-    public void NewNode()
-    {
-        string title = "Title", text = lorem;
-        CreateCommentNode(title, text);
     }
 
-    public void NewNode(string title, string text)
+    public void NewNode(Account account, Comment comment)
     {
-        CreateCommentNode(title, text);
+        CreateCommentNode(account, comment);
+        ChangePositionViaScroll();
     }
     
-    public void CreateCommentNode(string title, string text)
+    private void CreateCommentNode(Account account, Comment comment)
     {
         GameObject commentNode = Instantiate(CommentNodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
         _commentNodeIndex++;
@@ -50,8 +45,11 @@ public class CommentsPanel : MonoBehaviour
         commentNode.name = "CommentNode" + _commentNodeIndex;
         commentNodes.Add(commentNode);
 
-        commentNode.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = title + " " + _commentNodeIndex;
-        commentNode.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = text;
+        commentNode.GetComponent<CommentNodeHandler>().Account = account;
+        commentNode.GetComponent<CommentNodeHandler>().Comment = comment;
+
+        commentNode.transform.Find("CommentItself").Find("Title").GetComponent<TextMeshProUGUI>().text = account.AccountName;
+        commentNode.transform.Find("CommentItself").Find("Text").GetComponent<TextMeshProUGUI>().text = comment.CommentText;
         
         if (_firstCommentNode == 0) _firstCommentNode = commentNode.GetComponent<RectTransform>().sizeDelta.y;
         
@@ -76,7 +74,7 @@ public class CommentsPanel : MonoBehaviour
     private void ChangePositionViaScroll()
     {
         if (CalculateHeight() >= _height) 
-            transform.localPosition = new Vector3(0, -(_scrollValue) * (_height - CalculateHeight()) - CalculateHeight() + _firstCommentNode - 10, 0);
+            transform.localPosition = new Vector3(0, -(_scrollValue) * (_height - CalculateHeight()) - CalculateHeight() + _firstCommentNode - 20, 0);
     }
 
     public void Scroll()
@@ -91,5 +89,16 @@ public class CommentsPanel : MonoBehaviour
             activeCommentNode.GetComponent<CommentNodeHandler>().SetInactive();
 
         activeCommentNode = node;
+    }
+
+    public void DeleteComment()
+    {
+        if (!activeCommentNode.GetComponent<CommentNodeHandler>().isDeleted && activeCommentNode != null)
+        {
+            activeCommentNode.GetComponent<CommentNodeHandler>().isDeleted = true;
+            activeCommentNode.transform.Find("CommentItself").gameObject.SetActive(false);
+            activeCommentNode.transform.Find("Deleted").gameObject.SetActive(true);
+            activeCommentNode.GetComponent<CommentNodeHandler>().SetInactive();
+        }
     }
 }

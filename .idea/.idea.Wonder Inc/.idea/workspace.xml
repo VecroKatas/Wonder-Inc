@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf6d411b-d5a6-4c3f-a7a6-985e3042eee4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Classes/Account.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Classes/Account.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Classes/Comment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Classes/Comment.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wonder Inc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wonder Inc/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CommentNodeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommentNodeHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CommentsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommentsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CommentsPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommentsPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefabs/CommentNode.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Prefabs/CommentNode.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefabs/CommentNode.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Prefabs/CommentNode.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScrollHandle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScrollHandle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextNodeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommentNodeHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextNodeHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CommentNodeHandler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TextUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TextUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2b0OcAe3Rsb6MvgMoGLWOFtaAvz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,7 +64,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\Wonder Inc.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Wonder Inc.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Projects\Wonder Inc\Builds" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -112,6 +121,8 @@
       <workItem from="1705858463642" duration="10075000" />
       <workItem from="1705921280247" duration="2414000" />
       <workItem from="1706012454141" duration="24819000" />
+      <workItem from="1706100803594" duration="13788000" />
+      <workItem from="1706191892180" duration="13898000" />
     </task>
     <servers />
   </component>

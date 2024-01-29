@@ -21,7 +21,7 @@ public class ScrollHandle : MonoBehaviour
     {
         ChangeSize();
         
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f )
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             if (scrollbar.value + Input.GetAxis("Mouse ScrollWheel") > 1f)
                 scrollbar.value = 1f;
@@ -38,6 +38,5 @@ public class ScrollHandle : MonoBehaviour
             scrollbar.size = 1f;
         else
             scrollbar.size = _height / _panelRectTransform.sizeDelta.y;
-
     }
 }
